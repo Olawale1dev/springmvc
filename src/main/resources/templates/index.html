@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Management Syestem</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<style>
+ #tab{
+
+border:2px solid blue;
+border-spacing: 5px;
+}
+.tr,th{
+padding: 15px;
+}
+.th{
+background-color: black;
+color:white;
+}
+.tr, th{
+text-align: left;
+}
+  table, tr,th{
+  border: 2px solid black;
+  padding: 15px;
+  }
+  table{
+  border-spacing: 5px;
+  }
+  tr{
+  background-color: pink;
+  }
+  th{
+  background-color: rgb(234,234,0);
+  text-color: yellow;
+  }
+ .cn {
+width: 160px;
+height: 40px;
+background: #ff7200;
+border:none;
+margin-bottom: 10px;
+margin-left:20px;
+font-size: 18px;
+border-radius: 10px;
+cursor:pointer;
+transition: .4s ease;
+}
+ .cn a{
+text-decoration: none;
+color:#000;
+transition: .3s ease;
+
+}
+
+</style>
+    <body>
+        <div align="center" >
+
+            <h1>Employee List</h1>
+            <a  th:href="@{/showNewEmployee}"><button class="cn"> Add Employee</button></a>
+            <table border="1"  id="tab">
+                <thead>
+                    <tr>
+                        <th>Employee First Name</th>
+                        <th>Employee Last Name</th>
+                        <th>Employee Email</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr  th:each ="employee : ${listEmployees}">
+                        <td th:text ="${employee.firstName}"></td>
+                        <td th:text ="${employee.lastName}"></td>
+                        <td th:text ="${employee.Email}"></td>
+                        <td> <a th:href="@{/showFormForUpdate/{id}(id=${employee.id})}" class="cn">Update</a></td>
+
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+
+    </body>
+</html>

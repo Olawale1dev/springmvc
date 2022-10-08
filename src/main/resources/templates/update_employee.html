@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Employee</title>
+</head>
+<style>
+
+  .form1{
+margin-top: 5PX;
+border-radius: 10px;
+padding: 25px;
+width: 250px;
+height:380px;
+background: linear-gradient(to top, rgba(0,0,0,0,5)50%,rgba(0,0,0,0,5)50%);
+position: left;
+background-color: #0fff;
+color: black;
+top: -20px
+position: absolute;
+left:50px
+}
+
+.cn {
+width: 160px;
+height: 40px;
+background: #ff7200;
+border:none;
+margin-bottom: 10px;
+margin-left:20px;
+font-size: 18px;
+border-radius: 10px;
+cursor:pointer;
+transition: .4s ease;
+
+</style>
+
+<body>
+<h1 class="cn"> Employee Management System</h1>
+<p class="dropbtn">Update New Employee</p>
+
+<form  class="form" th:action ="@{/saveEmployee}" object="employee"  method="POST">
+
+    <fieldset>
+        First Name:<br>
+        <input type="text" name="firstName" /><br>
+        Last Name:<br>
+        <input type="text" name="lastName" /><br>
+        Email:<br>
+        <input type="text" name="email"  />
+        <button type="submit" value="save Employee" th:attr="value=#{employee.submit}">Update Employee</button>
+    </fieldset>
+    <!--First Name:<br>
+    <input type="text"  field ="*{firstName}" placeholder="Employee First Name"><br>
+    Last Name: <br>
+    <input type="text" field ="*{lastName}" placeholder="Employee Last Name"><br>
+    Email:<br>
+    <input type="email" field ="*{email}" placeholder="Email"><br>
+    <button type="submit"  onclick="Submit" >Save Employee</button>-->
+
+</form>
+</body>
+</html>
